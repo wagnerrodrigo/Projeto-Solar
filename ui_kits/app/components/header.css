@@ -1,0 +1,14 @@
+/* Header & navigation — sticky, translucent blur surface, one primary CTA. */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  height: var(--header-h);
+  background: oklch(0.995 0.002 105 / 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.header__in { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.header__brand { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--primary); letter-spacing: -0.01em; text-decoration: none; }
+.header__brand span { color: var(--accent); }
+.header__nav { display: flex; align-items: center; gap: var(--space-5); }
+.header__link { color: var(--fg); font-size: var(--text-label); font-weight: 500; text-decoration: none; }
+.header__link:hover { color: var(--primary); }

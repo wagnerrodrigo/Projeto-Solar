@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projeto Solar — Landing page de energia solar</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<!-- Modular component CSS — maintained as importable modules (base, header,
+     hero, blocks, responsive). The embedded sheet below mirrors them so the
+     file stays self-contained for review fidelity. -->
+<link rel="stylesheet" href="components/base.css">
+<link rel="stylesheet" href="components/header.css">
+<link rel="stylesheet" href="components/hero.css">
+<link rel="stylesheet" href="components/blocks.css">
+<link rel="stylesheet" href="components/responsive.css">
+<style>
+  :root { --container-max: 1160px; }
+  body { font-family: var(--font-body); color: var(--fg); background: var(--bg); }
+
+  /* ---- Header ---------------------------------------------------------- */
+  .header {
+    position: sticky; top: 0; z-index: 50;
+    height: var(--header-h);
+    background: oklch(0.995 0.002 105 / 0.82);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header__in { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+  .header__brand { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--primary); letter-spacing: -0.01em; text-decoration: none; }
+  .header__brand span { color: var(--accent); }
+  .header__nav { display: flex; align-items: center; gap: var(--space-5); }
+  .header__link { color: var(--fg); font-size: var(--text-label); font-weight: 500; text-decoration: none; }
+  .header__link:hover { color: var(--primary); }
+
+  /* ---- Hero ------------------------------------------------------------ */
+  .hero { padding-block: var(--space-10) var(--space-8); }
+  .hero__grid { display: grid; grid-template-columns: 7fr 5fr; gap: var(--space-8); align-items: center; }
+  .hero__kicker { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .hero__title { margin-top: var(--space-4); color: var(--primary); }
+  .hero__title em { font-style: normal; color: var(--accent); }
+  .hero__lede { margin-top: var(--space-5); max-width: 560px; color: var(--muted); }
+  .hero__cta-row { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-6); align-items: center; }
+  .hero__note { margin-top: var(--space-4); color: var(--muted); }
+  .hero__media { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 3; }
+  .hero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero__badge {
+    position: absolute; left: var(--space-5); bottom: var(--space-5);
+    background: oklch(0.995 0.002 105 / 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    box-shadow: var(--shadow-md);
+  }
+  .hero__badge-num { color: var(--accent); }
+
+  /* ---- Faixa de confiança ---------------------------------------------- */
+  .trust { border-block: 1px solid var(--border); background: var(--surface); padding-block: var(--space-6); }
+  .trust__in { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-5); }
+  .trust__item { text-align: center; }
+  .trust__num { display: block; color: var(--primary); }
+  .trust__label { display: block; margin-top: var(--space-1); color: var(--muted); }
+
+  /* ---- Seções ------------------------------------------------------------ */
+  .section__head { max-width: 680px; margin-bottom: var(--space-8); }
+  .section__head h2 { color: var(--primary); }
+  .section__head p { margin-top: var(--space-4); color: var(--muted); }
+
+  /* ---- Como funciona ----------------------------------------------------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .step__num { display: block; font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .step h3 { margin-top: var(--space-4); color: var(--primary); }
+  .step p { margin-top: var(--space-3); color: var(--muted); font-size: var(--text-body); }
+
+  /* ---- Retorno financeiro ------------------------------------------------ */
+  .payback { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-8); align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-8); }
+  .payback__chart { display: flex; align-items: flex-end; gap: var(--space-4); height: 220px; padding: var(--space-4); }
+  .payback__bar { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+  .payback__fill { width: 100%; border-radius: var(--radius-sm) var(--radius-sm) 0 0; background: var(--primary); }
+  .payback__fill.is-accent { background: var(--accent); }
+  .payback__year { font-family: var(--font-display); font-size: var(--text-caption); font-weight: 600; color: var(--muted); }
+  .payback__list { display: grid; gap: var(--space-4); }
+  .payback__row { display: flex; align-items: baseline; gap: var(--space-4); border-bottom: 1px solid var(--border); padding-bottom: var(--space-3); }
+  .payback__row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .payback__k { flex: 1; color: var(--muted); }
+
+  /* ---- Vantagens ---------------------------------------------------------- */
+  .benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .benefit { padding: var(--space-6); }
+  .benefit__icon { width: 52px; height: 52px; border-radius: var(--radius-md); display: grid; place-items: center; background: oklch(0.93 0.02 255); color: var(--primary); }
+  .benefit__icon.is-accent { background: oklch(0.93 0.05 80); color: var(--accent); }
+  .benefit__icon.is-success { background: oklch(0.92 0.05 155); color: var(--success); }
+  .benefit h3 { margin-top: var(--space-4); color: var(--primary); }
+  .benefit p { margin-top: var(--space-3); color: var(--muted); }
+
+  /* ---- Seção escura (simulação) ------------------------------------------ */
+  .simulation { background: var(--primary); border-radius: var(--radius-lg); padding: var(--space-10); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; margin-top: var(--space-12); }
+  .simulation h2 { color: var(--on-primary); }
+  .simulation p { margin-top: var(--space-4); color: oklch(0.82 0.03 255 / 0.9); }
+  .simulation .t-mono-sm { color: oklch(0.82 0.03 255 / 0.75); }
+  .simulation form { display: grid; gap: var(--space-4); background: oklch(0.995 0.002 105 / 0.06); border: 1px solid oklch(1 0 0 / 0.14); border-radius: var(--radius-lg); padding: var(--space-6); }
+  .simulation label { color: var(--on-primary); }
+  .simulation .input { background: oklch(0.995 0.002 105 / 0.9); }
+  .simulation .btn--primary { width: 100%; }
+  .simulation .field-error { color: oklch(0.82 0.12 25); }
+
+  /* ---- FAQ ---------------------------------------------------------------- */
+  .faq { display: grid; gap: var(--space-4); max-width: 760px; }
+
+  /* ---- Footer -------------------------------------------------------------- */
+  .footer { margin-top: var(--space-12); border-top: 1px solid var(--border); background: var(--surface); }
+  .footer__in { padding-block: var(--space-8); display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); }
+  .footer__brand { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 700; color: var(--primary); }
+  .footer__note { color: var(--muted); font-size: var(--text-caption); }
+
+  /* ---- Responsivo ---------------------------------------------------------- */
+  @media (max-width: 1000px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__media { order: -1; }
+    .steps, .benefits, .trust__in { grid-template-columns: 1fr 1fr; }
+    .payback { grid-template-columns: 1fr; }
+    .simulation { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .header__nav { display: none; }
+    .steps, .benefits, .trust__in { grid-template-columns: 1fr; }
+    .section { padding-block: var(--space-8); }
+    .simulation { padding: var(--space-6); }
+  }
+</style>
+</head>
+<body data-od-id="landing-energia-solar">
+
+<header class="header" data-od-id="header">
+  <div class="container header__in">
+    <a class="header__brand" href="#" aria-label="Projeto Solar — início">
+      <img src="../../assets/brand/logo-mark.svg" width="36" height="36" alt="">
+      Projeto<span>Solar</span>
+    </a>
+    <nav class="header__nav" aria-label="Navegação principal">
+      <a class="header__link" href="#como-funciona" data-od-id="nav-como-funciona">Como funciona</a>
+      <a class="header__link" href="#retorno" data-od-id="nav-retorno">Retorno</a>
+      <a class="header__link" href="#vantagens" data-od-id="nav-vantagens">Vantagens</a>
+      <a class="header__link" href="#faq" data-od-id="nav-faq">Dúvidas</a>
+      <a class="btn btn--primary" href="#simule" data-od-id="cta-header-simular">Simular economia</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero container" data-od-id="hero">
+  <div class="hero__grid">
+    <div>
+      <span class="chip hero__kicker"><img src="../../assets/icons/sun.svg" width="16" height="16" alt="">Energia solar fotovoltaica</span>
+      <h1 class="t-display-xl hero__title">Sua conta de luz, <em>menor</em> a partir do telhado.</h1>
+      <p class="t-body-lg hero__lede">Sistemas completos de microgeração para residências e empresas. Instalação, homologação e acompanhamento do retorno — do projeto à economia mensal.</p>
+      <div class="hero__cta-row">
+        <a class="btn btn--primary" href="#simule" data-od-id="cta-hero-simular">Simular economia</a>
+        <a class="btn btn--secondary" href="#como-funciona" data-od-id="cta-hero-como-funciona">Como funciona</a>
+      </div>
+      <p class="t-caption hero__note">Simulação gratuita · sem compromisso · retorno em 3–6 anos</p>
+    </div>
+    <figure class="hero__media">
+      <img src="../../assets/photography/casa-sorriso-mt-1280.jpg" alt="Casa brasileira com painéis fotovoltaicos no telhado, em Sorriso, Mato Grosso" width="1280" height="960">
+      <figcaption class="hero__badge">
+        <span class="t-label">Economia estimada</span>
+        <span class="t-mono-lg hero__badge-num" style="display:block" data-od-id="hero-economia">R$ 480<span class="t-caption" style="color:var(--muted)">/mês*</span></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="trust" data-od-id="faixa-confianca">
+  <div class="container trust__in">
+    <div class="trust__item" data-od-id="trust-total"><span class="t-mono-lg trust__num">−97%</span><span class="t-caption trust__label">até na conta de luz</span></div>
+    <div class="trust__item" data-od-id="trust-payback"><span class="t-mono-lg trust__num">4,1 anos</span><span class="t-caption trust__label">retorno médio do projeto</span></div>
+    <div class="trust__item" data-od-id="trust-painel"><span class="t-mono-lg trust__num">25 anos</span><span class="t-caption trust__label">de vida útil dos painéis</span></div>
+    <div class="trust__item" data-od-id="trust-co2"><span class="t-mono-lg trust__num" style="color:var(--success)">2,4 t</span><span class="t-caption trust__label">de CO₂ evitadas por ano*</span></div>
+  </div>
+</section>
+
+<section class="section container" id="como-funciona" data-od-id="secao-como-funciona">
+  <div class="section__head">
+    <h2 class="t-heading-1">Como funciona</h2>
+    <p>Três etapas claras, sem surpresa. Você acompanha cada fase da implantação.</p>
+  </div>
+  <div class="steps">
+    <div class="step card" data-od-id="etapa-1">
+      <span class="step__num">01</span>
+      <h3 class="t-heading-3">Projeto personalizado</h3>
+      <p>Análise do seu consumo e do telhado. Dimensionamos o sistema ideal e apresentamos o retorno em números.</p>
+    </div>
+    <div class="step card" data-od-id="etapa-2">
+      <span class="step__num">02</span>
+      <h3 class="t-heading-3">Instalação e homologação</h3>
+      <p>Montagem dos módulos, inversor e cabeamento, com homologação na distribuidora feita pela nossa equipe.</p>
+    </div>
+    <div class="step card" data-od-id="etapa-3">
+      <span class="step__num">03</span>
+      <h3 class="t-heading-3">Acompanhamento do retorno</h3>
+      <p>Monitoramento da geração e da economia mês a mês, com relatório simples de acompanhamento.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="retorno" data-od-id="secao-retorno">
+  <div class="section__head">
+    <h2 class="t-heading-1">Retorno do investimento</h2>
+    <p>Projeção ilustrativa para consumo de <span class="t-mono-sm">940 kWh/mês</span>* — o acúmulo da economia começa a superar o investimento em menos de 5 anos.</p>
+  </div>
+  <div class="payback" data-od-id="grafico-payback">
+    <div class="payback__chart" role="img" aria-label="Gráfico de barras: economia acumulada cresce até se igualar ao investimento entre os anos 4 e 5">
+      <div class="payback__bar"><div class="payback__fill" style="height:16%"></div><span class="payback__year">Ano 1</span></div>
+      <div class="payback__bar"><div class="payback__fill" style="height:34%"></div><span class="payback__year">Ano 2</span></div>
+      <div class="payback__bar"><div class="payback__fill" style="height:52%"></div><span class="payback__year">Ano 3</span></div>
+      <div class="payback__bar"><div class="payback__fill" style="height:70%"></div><span class="payback__year">Ano 4</span></div>
+      <div class="payback__bar"><div class="payback__fill is-accent" style="height:88%"></div><span class="payback__year">Ano 5</span></div>
+      <div class="payback__bar"><div class="payback__fill is-accent" style="height:100%"></div><span class="payback__year">Ano 6</span></div>
+    </div>
+    <div class="payback__list">
+      <div class="payback__row"><span class="t-mono-sm payback__k">Investimento estimado</span><span class="t-mono-lg">R$ 38.400*</span></div>
+      <div class="payback__row"><span class="t-mono-sm payback__k">Auto­consumo mensal</span><span class="t-mono-sm">≈ 700 kWh/mês</span></div>
+      <div class="payback__row"><span class="t-mono-sm payback__k">Economia mensal</span><span class="t-mono-lg t-accent">R$ 480</span></div>
+      <div class="payback__row"><span class="t-mono-sm payback__k">Payback</span><span class="t-mono-lg" style="color:var(--success)">4,1 anos</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="vantagens" data-od-id="secao-vantagens">
+  <div class="section__head">
+    <h2 class="t-heading-1">Por que fazer energia solar?</h2>
+  </div>
+  <div class="benefits">
+    <div class="benefit card" data-od-id="card-vantagem-economia">
+      <div class="benefit__icon is-accent"><img src="../../assets/icons/coin.svg" width="26" height="26" alt=""></div>
+      <h3 class="t-heading-3">Economia real</h3>
+      <p class="t-body">Redução de até 97% na conta de luz, com previsibilidade de gastos por décadas.</p>
+    </div>
+    <div class="benefit card" data-od-id="card-vantagem-energia">
+      <div class="benefit__icon"><img src="../../assets/icons/solar-panel.svg" width="26" height="26" alt=""></div>
+      <h3 class="t-heading-3">Independência</h3>
+      <p class="t-body">Gere sua própria energia e proteja-se da escalada das tarifas da distribuidora.</p>
+    </div>
+    <div class="benefit card" data-od-id="card-vantagem-ambiente">
+      <div class="benefit__icon is-success"><img src="../../assets/icons/leaf.svg" width="26" height="26" alt=""></div>
+      <h3 class="t-heading-3">Sustentabilidade</h3>
+      <p class="t-body">Fonte limpa e renovável, valorizando o imóvel e reduzindo a pegada de carbono.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section container" data-od-id="secao-simulacao">
+  <div class="simulation" id="simule">
+    <div>
+      <h2 class="t-heading-1">Simule sua economia</h2>
+      <p class="t-body-lg">Informe seu consumo médio mensal e seu estado. Retornamos um orçamento com economia estimada, sem compromisso.</p>
+      <p class="t-mono-sm" style="margin-top:var(--space-4)">
+        8,2 kWp · 940 kWh/mês · payback 4,1 anos<span style="color:var(--on-primary)"> — exemplo de referência</span>
+      </p>
+    </div>
+    <form id="form-simulacao" data-od-id="form-simulacao" novalidate>
+      <div style="display:grid;gap:var(--space-2)">
+        <label class="t-label" for="consumo">Consumo mensal (kWh/mês)</label>
+        <input class="input" id="consumo" name="consumo" type="text" inputmode="numeric" placeholder="ex.: 400" data-od-id="input-consumo">
+      </div>
+      <div style="display:grid;gap:var(--space-2)">
+        <label class="t-label" for="uf">Estado (UF)</label>
+        <select class="input" id="uf" name="uf" data-od-id="select-uf">
+          <option value="">Selecione</option>
+          <option value="SP">SP — São Paulo</option>
+          <option value="RJ">RJ — Rio de Janeiro</option>
+          <option value="MG">MG — Minas Gerais</option>
+          <option value="RS">RS — Rio Grande do Sul</option>
+          <option value="PR">PR — Paraná</option>
+          <option value="SC">SC — Santa Catarina</option>
+        </select>
+      </div>
+      <button class="btn btn--primary" type="submit" data-od-id="btn-simular">Simular economia</button>
+      <p class="field-error" id="sim-err" style="display:none" role="alert">Preencha o consumo mensal para continuar.</p>
+      <p class="t-mono-sm" style="color:oklch(0.82 0.03 255 / 0.75)">*Valores estimados. Confirmação após visita técnica.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section container" id="faq" data-od-id="secao-faq">
+  <div class="section__head">
+    <h2 class="t-heading-1">Dúvidas frequentes</h2>
+  </div>
+  <div class="faq">
+    <details class="accordion" data-od-id="faq-retorno">
+      <summary class="accordion__header">Em quanto tempo o sistema se paga?
+        <svg class="accordion__chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <div class="accordion__body">O retorno médio fica entre 3 e 6 anos, dependendo do perfil de consumo e da tarifa da sua região. Depois do payback, a economia é praticamente toda sua pelos próximos 20 anos de vida útil dos módulos.</div>
+    </details>
+    <details class="accordion" data-od-id="faq-homologacao">
+      <summary class="accordion__header">Quem cuida da homologação na distribuidora?
+        <svg class="accordion__chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <div class="accordion__body">Nossa equipe assume todo o processo junto à distribuidora local, incluindo documentação, vistoria e conexão do sistema à rede.</div>
+    </details>
+    <details class="accordion" data-od-id="faq-financiamento">
+      <summary class="accordion__header">Existe financiamento?
+        <svg class="accordion__chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <div class="accordion__body">Sim. Trabalhamos com linhas de crédito específicas para energia solar com parcelas que cabem praticamente no lugar da conta de luz.</div>
+    </details>
+  </div>
+</section>
+
+<footer class="footer" data-od-id="footer">
+  <div class="container footer__in">
+    <span class="footer__brand">
+      <img src="../../assets/brand/logo-mark.svg" width="28" height="28" alt="">
+      Projeto Solar
+    </span>
+    <span class="footer__note">Precisa de um projeto dimensionado para você? <a href="#simule" class="t-label" data-od-id="footer-cta">Faça uma simulação gratuita.</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('form-simulacao');
+    var err = document.getElementById('sim-err');
+    var consumo = document.getElementById('consumo');
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var v = (consumo.value || '').trim().replace(/\D/g, '');
+      if (!v || Number(v) <= 0) {
+        err.style.display = 'block';
+        consumo.classList.add('input--error');
+        consumo.focus();
+        return;
+      }
+      err.style.display = 'none';
+      consumo.classList.remove('input--error');
+      var btn = form.querySelector('[data-od-id="btn-simular"]');
+      btn.textContent = 'Calculando…';
+      btn.disabled = true;
+      btn.style.opacity = 0.72;
+      setTimeout(function () {
+        btn.disabled = false;
+        btn.style.opacity = 1;
+        btn.textContent = 'Simular economia';
+      }, 1200);
+    });
+  })();
+</script>
+</body>
+</html>

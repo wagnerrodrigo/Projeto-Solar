@@ -1,0 +1,38 @@
+{
+  "manifestVersion": 1,
+  "designSystemId": "user:landing-page-energia-solar-design-system",
+  "sourceProjectId": "27d8debd-3bb6-4b5c-9fac-6f44e52da2b6",
+  "tokensCss": "../colors_and_type.css",
+  "previews": [
+    {
+      "id": "colors",
+      "title": "Colors",
+      "file": "colors-primary.html",
+      "description": "Paleta solar: tokens núcleo, semânticos e pares de texto sobre cor."
+    },
+    {
+      "id": "typography",
+      "title": "Typography",
+      "file": "typography-specimens.html",
+      "description": "Escala de tipo: display, corpo e mono com as famílias do sistema."
+    },
+    {
+      "id": "spacing",
+      "title": "Spacing & Radius",
+      "file": "spacing-tokens.html",
+      "description": "Escala de 4px, raios e sombras do sistema."
+    },
+    {
+      "id": "components",
+      "title": "Components",
+      "file": "components-buttons.html",
+      "description": "Botões, cards, chips, accordion e formulários."
+    },
+    {
+      "id": "brand",
+      "title": "Brand Assets",
+      "file": "brand.html",
+      "description": "Logotipo e ícones SVG preservados em assets/brand e assets/icons."
+    }
+  ]
+}

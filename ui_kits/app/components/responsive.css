@@ -1,0 +1,14 @@
+/* Responsive behavior — grids collapse instead of shrinking; no horizontal scroll. */
+@media (max-width: 1000px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__media { order: -1; }
+  .steps, .benefits, .trust__in { grid-template-columns: 1fr 1fr; }
+  .payback { grid-template-columns: 1fr; }
+  .simulation { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .header__nav { display: none; }
+  .steps, .benefits, .trust__in { grid-template-columns: 1fr; }
+  .section { padding-block: var(--space-8); }
+  .simulation { padding: var(--space-6); }
+}

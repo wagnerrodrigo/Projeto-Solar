@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "preview/brand.html",
+  "entry": "preview/brand.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-05T21:06:44.738Z",
+  "updatedAt": "2026-09-05T21:06:44.738Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

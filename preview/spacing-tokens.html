@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview — Espaçamento, raio e sombras | Projeto Solar</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { font-family: var(--font-body); color: var(--fg); background: var(--bg); margin: 0; padding: 48px clamp(24px,4vw,48px); }
+  .wrap { max-width: 1080px; margin-inline: auto; }
+  .stack { display: grid; gap: 40px; }
+  h1 { font-family: var(--font-display); font-size: clamp(30px,3.6vw,48px); margin-bottom: 4px; }
+  .lede { color: var(--muted); max-width: 680px; line-height: 1.6; }
+  h2 { font-family: var(--font-display); font-size: 22px; margin-bottom: 16px; }
+  .row { display: grid; grid-template-columns: 96px 1fr; align-items: center; gap: 16px; border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .row span { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  .bar { background: var(--accent); border-radius: 4px; height: 24px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 16px; }
+  .radius { width: 88px; height: 88px; background: var(--surface); border: 1px solid var(--border); display: grid; place-items: center; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .shadows { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; }
+  .shadow-demo { border-radius: var(--radius-lg); background: var(--surface); padding: 32px; font-weight: 600; }
+  .shadow-demo p { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 8px; font-weight: 400; }
+</style>
+</head>
+<body>
+<div class="wrap stack">
+  <header>
+    <h1>Espaçamento, raio e sombras</h1>
+    <p class="lede">Escala de 4px com densidade confortável para conversão. Cards em <code class="t-mono-sm">--radius-lg</code>, botões e inputs em <code class="t-mono-sm">--radius-md</code>, chips em <code class="t-mono-sm">--radius-full</code>.</p>
+  </header>
+
+  <section>
+    <h2>Escala de espaçamento</h2>
+    <div style="padding:0 8px">
+      <div class="row"><span>--space-1 · 4px</span><div class="bar" style="width:4px"></div></div>
+      <div class="row"><span>--space-2 · 8px</span><div class="bar" style="width:8px"></div></div>
+      <div class="row"><span>--space-3 · 12px</span><div class="bar" style="width:12px"></div></div>
+      <div class="row"><span>--space-4 · 16px</span><div class="bar" style="width:16px"></div></div>
+      <div class="row"><span>--space-5 · 24px</span><div class="bar" style="width:24px"></div></div>
+      <div class="row"><span>--space-6 · 32px</span><div class="bar" style="width:32px"></div></div>
+      <div class="row"><span>--space-8 · 48px</span><div class="bar" style="width:48px"></div></div>
+      <div class="row"><span>--space-10 · 64px</span><div class="bar" style="width:64px"></div></div>
+      <div class="row"><span>--space-12 · 96px</span><div class="bar" style="width:96px"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Raios</h2>
+    <div class="chips">
+      <div class="radius" style="border-radius:var(--radius-sm)">sm 8</div>
+      <div class="radius" style="border-radius:var(--radius-md)">md 14</div>
+      <div class="radius" style="border-radius:var(--radius-lg)">lg 20</div>
+      <div class="radius" style="border-radius:var(--radius-full)">full</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sombras</h2>
+    <div class="shadows">
+      <div class="shadow-demo" style="box-shadow:var(--shadow-sm)">shadow-sm<p>0 1px 2px oklch(0.3 0.05 255 / 0.06)</p></div>
+      <div class="shadow-demo" style="box-shadow:var(--shadow-md)">shadow-md<p>0 6px 24px -6px oklch(0.3 0.05 255 / 0.14)</p></div>
+      <div class="shadow-demo" style="box-shadow:var(--shadow-lg)">shadow-lg<p>0 24px 48px -12px oklch(0.25 0.06 255 / 0.25)</p></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

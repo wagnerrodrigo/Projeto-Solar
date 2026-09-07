@@ -1,0 +1,368 @@
+/* ==========================================================================
+   Projeto Solar — Design System da Landing Page de Energia Solar
+   colors_and_type.css
+   --------------------------------------------------------------------------
+   Tokens do sistema extraídos do projeto "Landing Page Energia Solar".
+   Copie este arquivo verbatim como primeiro <style> de qualquer artefato.
+   Use SOMENTE tokens desta paleta. Não invente hex values.
+   ========================================================================== */
+
+:root {
+  /* ---- Cor principal --------------------------------------------------- */
+  --bg: oklch(0.995 0.002 105);
+  --surface: oklch(0.985 0.004 105);
+  --fg: oklch(0.23 0.03 255);
+  --muted: oklch(0.5 0.02 255);
+  --border: oklch(0.9 0.01 105);
+  --accent: oklch(0.75 0.16 80);
+
+  /* ---- Cores semânticas ------------------------------------------------ */
+  --primary: oklch(0.28 0.07 255);
+  --success: oklch(0.62 0.13 155);
+  --warning: oklch(0.8 0.15 75);
+  --danger: oklch(0.55 0.19 25);
+  --info: oklch(0.65 0.1 235);
+
+  /* ---- Pares de texto sobre cor ---------------------------------------- */
+  --on-accent: oklch(0.2 0.03 80);
+  --on-primary: oklch(0.995 0.002 105);
+  --on-accent-hover: oklch(0.18 0.03 80);
+
+  /* ---- Equivalentes hex (mesma cor em outra notação) -------------------- */
+  /* Convertidos de OKLCh → sRGB D65. O OKLCh acima é a fonte de verdade.   */
+  --bg-hex: #fdfdfc;
+  --surface-hex: #fafaf7;
+  --fg-hex: #131e2b;
+  --muted-hex: #5c646f;
+  --border-hex: #dfded7;
+  --accent-hex: #e2a000;
+  --primary-hex: #0e294a;
+  --success-hex: #349d62;
+  --warning-hex: #f5ae39;
+  --danger-hex: #c92f33;
+  --info-hex: #4a99c3;
+  --on-accent-hex: #1d1406;
+  --on-primary-hex: #fdfdfc;
+  --on-accent-hover-hex: #181003;
+
+  /* ---- Tipografia ------------------------------------------------------ */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --text-display-xl: clamp(36px, 5vw, 64px);
+  --text-heading-1: clamp(30px, 3.6vw, 48px);
+  --text-heading-2: clamp(24px, 2.4vw, 32px);
+  --text-heading-3: clamp(19px, 1.6vw, 22px);
+  --text-body-lg: clamp(18px, 1.5vw, 20px);
+  --text-body: 17px;
+  --text-caption: 14px;
+  --text-label-lg: 16px;
+  --text-label: 14px;
+  --text-mono-lg: clamp(26px, 2.4vw, 32px);
+  --text-mono-sm: 14px;
+
+  --leading-display: 1.05;
+  --leading-heading: 1.15;
+  --leading-body: 1.6;
+
+  --tracking-display: -0.02em;
+  --tracking-body: 0em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---- Espaçamento (escala de 4px) ------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-8: 48px;
+  --space-10: 64px;
+  --space-12: 96px;
+
+  /* ---- Raio ------------------------------------------------------------ */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  /* ---- Sombras --------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px oklch(0.3 0.05 255 / 0.06);
+  --shadow-md: 0 6px 24px -6px oklch(0.3 0.05 255 / 0.14);
+  --shadow-lg: 0 24px 48px -12px oklch(0.25 0.06 255 / 0.25);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --container-max: 1200px;
+  --container-pad: clamp(24px, 4vw, 48px);
+  --header-h: 72px;
+}
+
+/* ---- Base ------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: var(--leading-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ---- Tipografia utilitária ------------------------------------------- */
+
+.t-display-xl { font-family: var(--font-display); font-size: var(--text-display-xl); font-weight: var(--weight-bold); line-height: var(--leading-display); letter-spacing: var(--tracking-display); }
+.t-heading-1 { font-family: var(--font-display); font-size: var(--text-heading-1); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-display); }
+.t-heading-2 { font-family: var(--font-display); font-size: var(--text-heading-2); font-weight: var(--weight-semibold); line-height: var(--leading-heading); }
+.t-heading-3 { font-family: var(--font-display); font-size: var(--text-heading-3); font-weight: var(--weight-semibold); line-height: var(--leading-heading); }
+.t-body-lg   { font-size: var(--text-body-lg); line-height: var(--leading-body); }
+.t-body     { font-size: var(--text-body); line-height: var(--leading-body); }
+.t-caption  { font-size: var(--text-caption); font-weight: var(--weight-medium); line-height: 1.4; }
+.t-label-lg { font-size: var(--text-label-lg); font-weight: var(--weight-semibold); line-height: 1.2; }
+.t-label    { font-size: var(--text-label); font-weight: var(--weight-semibold); line-height: 1.2; }
+.t-mono-lg  { font-family: var(--font-mono); font-size: var(--text-mono-lg); font-weight: var(--weight-medium); line-height: 1.2; }
+.t-mono-sm  { font-family: var(--font-mono); font-size: var(--text-mono-sm); line-height: 1.4; }
+
+/* ---- Cores utilitárias ------------------------------------------------- */
+
+.c-bg      { background: var(--bg); }
+.c-surface { background: var(--surface); }
+.c-primary { background: var(--primary); }
+.c-accent  { background: var(--accent); }
+.c-success { background: var(--success); }
+
+.t-fg     { color: var(--fg); }
+.t-muted  { color: var(--muted); }
+.t-primary { color: var(--primary); }
+.t-accent { color: var(--accent); }
+.t-on-accent { color: var(--on-accent); }
+.t-on-primary { color: var(--on-primary); }
+.t-success { color: var(--success); }
+.t-danger { color: var(--danger); }
+
+/* ---- Botões ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.btn--primary:hover {
+  background: oklch(0.81 0.16 80);
+  color: var(--on-accent-hover);
+  box-shadow: 0 8px 24px -8px oklch(0.75 0.16 80 / 0.5);
+}
+.btn--primary:active {
+  background: oklch(0.69 0.16 80);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.btn--secondary:hover {
+  background: oklch(0.95 0.02 255);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--primary);
+  padding: 12px 12px;
+}
+.btn--ghost:hover {
+  background: oklch(0.97 0.015 255);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ---- Cards ---------------------------------------------------------------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- Formulários ---------------------------------------------------------- */
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--fg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input::placeholder {
+  color: var(--muted);
+}
+.input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px oklch(0.75 0.16 80 / 0.25);
+}
+.input--error {
+  border-color: var(--danger);
+}
+.field-error {
+  color: var(--danger);
+  font-size: var(--text-caption);
+  margin-top: var(--space-2);
+}
+
+/* ---- Accordion -------------------------------------------------------------- */
+
+.accordion {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  overflow: hidden;
+}
+.accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--fg);
+  cursor: pointer;
+  text-align: left;
+}
+.accordion__header:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+.accordion__chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.accordion[open] .accordion__chevron {
+  transform: rotate(180deg);
+}
+.accordion__body {
+  padding: 0 var(--space-5) var(--space-5);
+  color: var(--muted);
+}
+
+/* ---- Selos / chips ----------------------------------------------------------- */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  background: oklch(0.93 0.05 80);
+  color: var(--on-accent);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+}
+.chip--success {
+  background: oklch(0.92 0.05 155);
+  color: oklch(0.28 0.06 155);
+}
+.chip--primary {
+  background: oklch(0.93 0.02 255);
+  color: var(--primary);
+}
+
+/* ---- Utilitários de layout ------------------------------------------------ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section {
+  padding-block: var(--space-12);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 900px) {
+  .grid-12 { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

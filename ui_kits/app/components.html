@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit de componentes | Projeto Solar</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="components/index.css">
+<style>
+  body { font-family: var(--font-body); color: var(--fg); background: var(--bg); margin: 0; padding: 48px clamp(24px,4vw,48px); }
+  .wrap { max-width: 1080px; margin-inline: auto; display: grid; gap: 56px; }
+  h1 { font-family: var(--font-display); font-size: clamp(30px,3.6vw,48px); margin: 0; }
+  h2 { font-family: var(--font-display); font-size: 22px; margin: 0 0 20px; }
+  .lede { color: var(--muted); max-width: 680px; line-height: 1.6; }
+  .group { border-top: 1px solid var(--border); padding-top: 40px; }
+  .row { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+  .code { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 20px; overflow-x: auto; margin-top: 16px; }
+  .inline { display: inline-flex; align-items: center; gap: 8px; }
+  .mini-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 20px; background: var(--surface); }
+  .mini-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .mini-trust { grid-template-columns: 1fr 1fr; } }
+  .mini-step { flex: 1 1 200px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Kit de componentes</h1>
+    <p class="lede">Blocos da landing aplicados (fonte: <code class="t-mono-sm">index.html</code>, tokens de <code class="t-mono-sm">../../colors_and_type.css</code>). Reutilize estes padrões de marcação em novos artefatos.</p>
+  </header>
+
+  <section class="group">
+    <h2>Header fixo com blur</h2>
+    <div class="mini-header">
+      <span class="inline" style="font-family:var(--font-display);font-weight:700;color:var(--primary)"><img src="../../assets/brand/logo-mark.svg" width="28" height="28" alt="">Projeto<span style="color:var(--accent)">Solar</span></span>
+      <span class="row" style="gap:16px">
+        <a href="#" class="header__link" style="color:var(--fg);text-decoration:none;font-size:14px;font-weight:500">Como funciona</a>
+        <a class="btn btn--primary" style="min-height:44px;padding:10px 20px">Simular economia</a>
+      </span>
+    </div>
+    <pre class="code">&lt;header class="header"&gt;
+  &lt;a class="btn btn--primary"&gt;Simular economia&lt;/a&gt;
+  &lt;!-- CTA único no header: nav usa só texto/link --&gt;
+&lt;/header&gt;</pre>
+  </section>
+
+  <section class="group">
+    <h2>Faixa de confiança</h2>
+    <div class="mini-trust">
+      <div style="text-align:center"><span class="t-mono-lg" style="color:var(--primary);display:block">−97%</span><span class="t-caption t-muted">até na conta</span></div>
+      <div style="text-align:center"><span class="t-mono-lg" style="color:var(--primary);display:block">4,1 anos</span><span class="t-caption t-muted">retorno médio</span></div>
+      <div style="text-align:center"><span class="t-mono-lg" style="color:var(--primary);display:block">25 anos</span><span class="t-caption t-muted">vida útil</span></div>
+      <div style="text-align:center"><span class="t-mono-lg" style="color:var(--success);display:block">2,4 t</span><span class="t-caption t-muted">CO₂ evitada/ano</span></div>
+    </div>
+    <pre class="code">.trust__num { color: var(--primary); font-family: var(--font-mono); }
+/* única cor verde permitida na faixa: --success para selo ambiental */</pre>
+  </section>
+
+  <section class="group">
+    <h2>Etapas (Como funciona)</h2>
+    <div class="row">
+      <div class="card mini-step" data-od-id="kit-etapa-1"><span style="display:block;font-family:var(--font-display);font-size:40px;font-weight:700;color:var(--accent)">01</span><h3 class="t-heading-3" style="margin:16px 0 8px">Projeto personalizado</h3><p class="t-caption t-muted">Análise do consumo e dimensionamento sob medida.</p></div>
+      <div class="card mini-step" data-od-id="kit-etapa-2"><span style="display:block;font-family:var(--font-display);font-size:40px;font-weight:700;color:var(--accent)">02</span><h3 class="t-heading-3" style="margin:16px 0 8px">Instalação</h3><p class="t-caption t-muted">Módulos, inversor e homologação com a distribuidora.</p></div>
+    </div>
+    <pre class="code">.step__num { font-family: var(--font-display); color: var(--accent); }</pre>
+  </section>
+
+  <section class="group">
+    <h2>Simulação (seção escura)</h2>
+    <div style="display:grid;gap:20px;background:var(--primary);border-radius:var(--radius-lg);padding:32px;max-width:520px">
+      <label class="t-label" style="color:var(--on-primary)" for="kit-c">Consumo mensal (kWh/mês)</label>
+      <input class="input" id="kit-c" type="text" placeholder="ex.: 400" style="background:oklch(0.995 0.002 105 / 0.9)">
+      <button class="btn btn--primary btn--block" data-od-id="kit-btn-simular">Simular economia</button>
+      <p class="t-mono-sm" style="color:oklch(0.82 0.03 255 / 0.75)">*Valores estimados. Confirmação após visita técnica.</p>
+    </div>
+    <pre class="code">/* fundo --primary, texto --on-primary, inputs com superfície clara
+   erro: .field-error em oklch(0.82 0.12 25) sobre fundo escuro */</pre>
+  </section>
+
+  <section class="group">
+    <h2>Footer de conversão</h2>
+    <div class="mini-header" style="justify-content:center">
+      <span class="t-body" style="color:var(--muted)">Precisa de um projeto dimensionado? <a href="#" class="t-label" style="color:var(--primary)">Faça uma simulação gratuita.</a></span>
+    </div>
+    <pre class="code">&lt;!-- repetição única de conversão no fim da página:
+      copy diferente do CTA primário do header/hero --&gt;</pre>
+  </section>
+</div>
+</body>
+</html>

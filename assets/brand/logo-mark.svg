@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Projeto Solar — marca (sol sobre telhado fotovoltaico)">
+  <defs>
+    <path id="ps-roof" d="M4 34 L32 12 L60 34" fill="none"/>
+  </defs>
+  <use href="#ps-roof" stroke="#1B4D7A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g stroke="#F5A623" stroke-width="4" stroke-linecap="round">
+    <path d="M32 12 V6"/>
+    <path d="M20 17 L15.3 12.3"/>
+    <path d="M44 17 L48.7 12.3"/>
+  </g>
+  <g fill="#F5A623">
+    <rect x="16" y="47" width="8" height="8" rx="1.5"/>
+    <rect x="28" y="47" width="8" height="8" rx="1.5"/>
+    <rect x="40" y="47" width="8" height="8" rx="1.5"/>
+  </g>
+  <path d="M10 55 H54 M10 60 H54" stroke="#1B4D7A" stroke-width="4" stroke-linecap="round"/>
+</svg>

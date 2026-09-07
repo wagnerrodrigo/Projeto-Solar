@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview — Cores | Projeto Solar</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { font-family: var(--font-body); color: var(--fg); background: var(--bg); margin: 0; padding: 48px clamp(24px,4vw,48px); }
+  .wrap { max-width: 1080px; margin-inline: auto; }
+  .stack { display: grid; gap: 40px; }
+  h1 { font-family: var(--font-display); font-size: clamp(30px,3.6vw,48px); margin-bottom: 4px; }
+  .lede { color: var(--muted); max-width: 680px; line-height: 1.6; }
+  h2 { font-family: var(--font-display); font-size: 22px; margin-bottom: 16px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .swatch { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); box-shadow: var(--shadow-sm); }
+  .swatch__chip { height: 96px; }
+  .swatch__meta { padding: 12px 16px; }
+  .swatch__name { font-weight: 600; font-size: 15px; }
+  .swatch__value { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 4px; word-break: break-all; }
+  .pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .pair { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; }
+  .pair__label { font-family: var(--font-mono); font-size: 12px; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap stack">
+  <header>
+    <h1>Cores</h1>
+    <p class="lede">Paleta do sistema Projeto Solar. Tokens definidos com <code class="t-mono-sm">oklch()</code> em <code class="t-mono-sm">../colors_and_type.css</code>. O âmbar é a cor de ação: no máximo duas vezes por viewport.</p>
+  </header>
+
+  <section>
+    <h2>Tokens núcleo</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch__chip" style="background:var(--bg);border-bottom:1px solid var(--border)"></div><div class="swatch__meta"><div class="swatch__name">--bg</div><div class="swatch__value">oklch(0.995 0.002 105) · #fdfdfc</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--surface);border-bottom:1px solid var(--border)"></div><div class="swatch__meta"><div class="swatch__name">--surface</div><div class="swatch__value">oklch(0.985 0.004 105) · #fafaf7</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--fg)"></div><div class="swatch__meta"><div class="swatch__name">--fg</div><div class="swatch__value">oklch(0.23 0.03 255) · #131e2b</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--muted)"></div><div class="swatch__meta"><div class="swatch__name">--muted</div><div class="swatch__value">oklch(0.5 0.02 255) · #5c646f</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--border)"></div><div class="swatch__meta"><div class="swatch__name">--border</div><div class="swatch__value">oklch(0.9 0.01 105) · #dfded7</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--accent)"></div><div class="swatch__meta"><div class="swatch__name">--accent</div><div class="swatch__value">oklch(0.75 0.16 80) · #e2a000</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Semânticas</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch__chip" style="background:var(--primary)"></div><div class="swatch__meta"><div class="swatch__name">--primary</div><div class="swatch__value">oklch(0.28 0.07 255) · #0e294a</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--success)"></div><div class="swatch__meta"><div class="swatch__name">--success</div><div class="swatch__value">oklch(0.62 0.13 155) · #349d62</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--warning)"></div><div class="swatch__meta"><div class="swatch__name">--warning</div><div class="swatch__value">oklch(0.8 0.15 75) · #f5ae39</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--danger)"></div><div class="swatch__meta"><div class="swatch__name">--danger</div><div class="swatch__value">oklch(0.55 0.19 25) · #c92f33</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--info)"></div><div class="swatch__meta"><div class="swatch__name">--info</div><div class="swatch__value">oklch(0.65 0.1 235) · #4a99c3</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pares de texto sobre cor</h2>
+    <div class="pairs">
+      <div class="pair" style="background:var(--accent)"><div class="t-label-lg" style="color:var(--on-accent)">CTA primário</div><div class="t-caption" style="color:var(--on-accent);opacity:.92">Simular economia</div><div class="pair__label" style="color:var(--on-accent);opacity:.8">--accent / --on-accent</div></div>
+      <div class="pair" style="background:var(--primary)"><div class="t-label-lg" style="color:var(--on-primary)">Seção escura</div><div class="t-caption" style="color:var(--on-primary);opacity:.85">Independência energética</div><div class="pair__label" style="color:var(--on-primary);opacity:.8">--primary / --on-primary</div></div>
+      <div class="pair" style="background:var(--success)"><div class="t-label-lg" style="color:oklch(0.22 0.05 155)">Selos ecológicos</div><div class="t-caption" style="color:oklch(0.22 0.05 155);opacity:.9">1 t CO₂ evitada</div><div class="pair__label" style="color:oklch(0.22 0.05 155);opacity:.8">--success / verde-escuro</div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview — Ativos de marca | Projeto Solar</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { font-family: var(--font-body); color: var(--fg); background: var(--bg); margin: 0; padding: 48px clamp(24px,4vw,48px); }
+  .wrap { max-width: 1080px; margin-inline: auto; }
+  .stack { display: grid; gap: 40px; }
+  h1 { font-family: var(--font-display); font-size: clamp(30px,3.6vw,48px); margin-bottom: 4px; }
+  .lede { color: var(--muted); max-width: 680px; line-height: 1.6; }
+  h2 { font-family: var(--font-display); font-size: 22px; margin-bottom: 16px; }
+  .assets { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px; }
+  .asset { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); padding: 32px; display: grid; place-items: center; gap: 12px; box-shadow: var(--shadow-sm); }
+  .asset img { display: block; }
+  .asset__name { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); text-align: center; }
+  .icons { display: flex; flex-wrap: wrap; gap: 16px; }
+  .icon { width: 72px; height: 72px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); color: var(--primary); }
+  .icon--accent { color: var(--accent); }
+  .icon--success { color: var(--success); }
+  .dark { background: var(--primary); border-radius: var(--radius-lg); padding: 40px; }
+  .dark h2 { color: var(--on-primary); }
+  .dark .asset { background: oklch(0.98 0.004 255); }
+</style>
+</head>
+<body>
+<div class="wrap stack">
+  <header>
+    <h1>Ativos de marca</h1>
+    <p class="lede">Arquivos preservados em <code class="t-mono-sm">../assets/brand</code> e <code class="t-mono-sm">../assets/icons</code>. Carregados aqui diretamente dos arquivos do projeto (sem hotlink).</p>
+  </header>
+
+  <section>
+    <h2>Logotipos</h2>
+    <div class="assets">
+      <div class="asset">
+        <img src="../assets/brand/logo-mark.svg" width="96" height="96" alt="Marcador: sol sobre telhado fotovoltaico">
+        <div class="asset__name">logo-mark.svg</div>
+      </div>
+      <div class="asset" style="display:block;text-align:center">
+        <img src="../assets/brand/logo-horizontal.svg" width="320" height="64" alt="Projeto Solar — logotipo horizontal" style="margin-inline:auto">
+        <div class="asset__name" style="margin-top:12px">logo-horizontal.svg</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <h2>Sobre fundo escuro</h2>
+    <div class="asset" style="display:block;text-align:center;background:oklch(0.98 0.004 255)">
+      <img src="../assets/brand/logo-mark.svg" width="96" height="96" alt="Marcador em superfície clara sobre seção escura" style="margin-inline:auto">
+      <div class="asset__name" style="margin-top:12px">Mesma marca, lida em seção <code>--primary</code></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ícones (SVG stroke)</h2>
+    <div class="icons">
+      <div class="icon"><img src="../assets/icons/sun.svg" width="28" height="28" alt="Sol"></div>
+      <div class="icon"><img src="../assets/icons/solar-panel.svg" width="28" height="28" alt="Painel fotovoltaico"></div>
+      <div class="icon icon--accent"><img src="../assets/icons/coin.svg" width="28" height="28" alt="Moeda"></div>
+      <div class="icon icon--success"><img src="../assets/icons/leaf.svg" width="28" height="28" alt="Folha"></div>
+      <div class="icon"><img src="../assets/icons/recurring.svg" width="28" height="28" alt="Retorno"></div>
+    </div>
+    <p class="lede" style="margin-top:16px">Ícones com stroke de 1.8px e cores herdadas de <code class="t-mono-sm">currentColor</code>. Nunca emoji como ícone funcional.</p>
+  </section>
+</div>
+</body>
+</html>

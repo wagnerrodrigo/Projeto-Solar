@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Previews | Projeto Solar — Design System</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { font-family: var(--font-body); color: var(--fg); background: var(--bg); margin: 0; padding: 48px clamp(24px,4vw,48px); }
+  .wrap { max-width: 1080px; margin-inline: auto; }
+  h1 { font-family: var(--font-display); font-size: clamp(30px,3.6vw,48px); margin-bottom: 4px; }
+  .lede { color: var(--muted); max-width: 680px; line-height: 1.6; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 20px; margin-top: 32px; }
+  a.card-link { text-decoration: none; color: inherit; display: block; }
+  .card__kicker { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .card__title { font-family: var(--font-display); font-size: 22px; margin: 8px 0; }
+  .card__desc { color: var(--muted); font-size: 15px; line-height: 1.5; }
+  .footer { margin-top: 40px; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Projeto Solar</h1>
+    <p class="lede">Cards de revisão do design system da Landing Page de Energia Solar. Cada card carrega <code class="t-mono-sm">../colors_and_type.css</code> e os ativos do projeto.</p>
+  </header>
+  <div class="grid">
+    <a class="card card-link" href="colors-primary.html" data-od-id="preview-colors"><span class="card__kicker">color</span><div class="card__title">Cores</div><div class="card__desc">Tokens núcleo, semânticos e pares de texto sobre cor.</div></a>
+    <a class="card card-link" href="typography-specimens.html" data-od-id="preview-typography"><span class="card__kicker">type</span><div class="card__title">Tipografia</div><div class="card__desc">Escala display/corpo/mono e famílias do sistema.</div></a>
+    <a class="card card-link" href="spacing-tokens.html" data-od-id="preview-spacing"><span class="card__kicker">space</span><div class="card__title">Espaçamento, raio e sombras</div><div class="card__desc">Escala de 4px, raios e sombras.</div></a>
+    <a class="card card-link" href="components-buttons.html" data-od-id="preview-components"><span class="card__kicker">ui</span><div class="card__title">Componentes</div><div class="card__desc">Botões, cards, chips, accordion e formulários.</div></a>
+    <a class="card card-link" href="brand.html" data-od-id="preview-brand"><span class="card__kicker">brand</span><div class="card__title">Ativos de marca</div><div class="card__desc">Logotipos e ícones SVG do projeto.</div></a>
+    <a class="card card-link" href="../ui_kits/app/index.html" data-od-id="preview-appkit"><span class="card__kicker">kit</span><div class="card__title">UI Kit aplicado</div><div class="card__desc">Landing page montada com os componentes e tokens do sistema.</div></a>
+  </div>
+  <p class="footer">designSystemId: user:landing-page-energia-solar-design-system · fonte: Landing Page Energia Solar (27d8debd-3bb6-4b5c-9fac-6f44e52da2b6)</p>
+</div>
+</body>
+</html>

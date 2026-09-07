@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "ui_kits/app/components.html",
+  "entry": "ui_kits/app/components.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-05T21:08:42.956Z",
+  "updatedAt": "2026-09-05T21:08:42.956Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}
